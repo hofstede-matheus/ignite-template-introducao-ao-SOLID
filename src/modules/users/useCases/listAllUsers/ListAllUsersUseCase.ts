@@ -8,8 +8,11 @@ interface IRequest {
 class ListAllUsersUseCase {
   constructor(private usersRepository: IUsersRepository) {}
 
-  execute({ user_id }: IRequest): User[] {
-    // Complete aqui
+  execute({ user_id }): User[] {
+    const user = this.usersRepository.findById(user_id);
+
+    if (!user.admin) throw new Error("Usuário já é admin");
+    return this.usersRepository.list();
   }
 }
 

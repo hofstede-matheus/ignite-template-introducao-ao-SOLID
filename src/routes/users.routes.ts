@@ -19,8 +19,9 @@ usersRoutes.get("/:user_id", (request, response) =>
   showUserProfileController.handle(request, response)
 );
 
-usersRoutes.get("/", (request, response) =>
-  listAllUsersController.handle(request, response)
-);
+usersRoutes.get("/", (request, response) => {
+  const k = listAllUsersController.handle(request, response);
+  return k;
+});
 
 export { usersRoutes };

@@ -4,14 +4,16 @@ import { User } from "../../../modules/users/model/User";
 
 describe("User model", () => {
   it("should be able to create an user with all props", () => {
-    const user = new User();
+    const user = new User("Atlas", "atlas@fromspace.com");
 
-    Object.assign(user, {
-      name: "Atlas",
-      email: "atlas@fromspace.com",
-      created_at: new Date(),
-      updated_at: new Date(),
-    });
+    // Object.assign(user, {
+    //   name: "Atlas",
+    //   email: "atlas@fromspace.com",
+    //   created_at: new Date(),
+    //   updated_at: new Date(),
+    // });
+
+    // desculpa mas eu acho gambiarra usar Object.assign :D
 
     expect(user).toMatchObject({
       name: "Atlas",
